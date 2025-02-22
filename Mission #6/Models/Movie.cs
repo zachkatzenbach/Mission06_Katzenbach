@@ -12,7 +12,7 @@ namespace Mission__6.Models
         [ForeignKey("CategoryId")]
         public int CategoryId { get; set; }
 
-        public Category Category { get; set; }
+        public Category? Category { get; set; }
 
         [Required(ErrorMessage = "Please enter a valid movie title.")]
         public string Title { get; set; }
@@ -23,11 +23,13 @@ namespace Mission__6.Models
         public string? Director { get; set; }
         public string? Rating { get; set; }
 
-        [Required(ErrorMessage = "Please enter whether or not the movie was edited.")]
+        //Uses 0 and 1 to indicate yes or no. If nothing is selected, the value is 2, which brings up this error message
+        [Range(0, 1, ErrorMessage = "Please enter whether or not the movie was edited.")]
         public int Edited { get; set; }
         public string? LentTo { get; set; }
 
-        [Required(ErrorMessage = "Please enter whether or not the movie was copied to plex.")]
+        //Same thing as above
+        [Range(0, 1, ErrorMessage = "Please enter whether or not the movie was copied to plex.")]
         public int CopiedToPlex { get; set; }
 
         //Make maximum length 25 characters

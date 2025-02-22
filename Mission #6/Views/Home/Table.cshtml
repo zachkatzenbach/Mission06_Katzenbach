@@ -24,9 +24,36 @@
 				<td>@x.Year</td>
 				<td>@x.Director</td>
 				<td>@x.Rating</td>
-				<td>@x.Edited</td>
+
+				<!-- Converts 1 to yes and 0 to no for the user to see -->
+				<!-- Data validation should ensure that there is never anything other than a 1 or a 0 -->
+				@if (x.Edited == 1) {
+					<td>Yes</td>
+				}
+				else if (x.Edited == 0) {
+					<td>No</td>
+				}
+				else {
+					<td>Error!</td>
+				}
+
+
 				<td>@x.LentTo</td>
-				<td>@x.CopiedToPlex</td>
+
+				<!-- Converts 1 to yes and 0 to no for the user to see -->
+				@if (x.CopiedToPlex == 1)
+				{
+					<td>Yes</td>
+				}
+				else if (x.CopiedToPlex == 0)
+				{
+					<td>No</td>
+				}
+				else {
+					<td>Error!</td>
+				}
+
+
 				<td>@x.Notes</td>
 				<td><a class="btn btn-dark" asp-controller="Home" asp-action="Edit" asp-route-id="@x.MovieId">Edit</a></td>
 				<td><a class="btn btn-danger" asp-controller="Home" asp-action="Delete" asp-route-id="@x.MovieId">Delete</a></td>

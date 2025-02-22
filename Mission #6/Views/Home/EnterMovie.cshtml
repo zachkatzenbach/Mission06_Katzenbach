@@ -9,12 +9,12 @@
     <input asp-for="Title" />
     <br />
 
-    <label asp-for="Category">Category</label> <br />
-    <select asp-for="Category">
-        <option value="">Select a Category</option>
+    <label asp-for="CategoryId">Category</label> <br />
+    <select asp-for="CategoryId">
+        <option value="0">Select a Category</option>
         @foreach (Category c in ViewBag.Categories)
         {
-            <option value="@c.CategoryId" selected="@(Model.Category.CategoryId == c.CategoryId ? "selected" : null)">@c.CategoryName</option>
+            <option value="@c.CategoryId">@c.CategoryName</option>
         }
     </select>
     <br />
@@ -39,7 +39,7 @@
 
     <label asp-for="Edited">Edited?</label> <br />
     <select asp-for="Edited">
-        <option value=""></option>
+        <option value="2"></option>
         <option value="0">No</option>
         <option value="1">Yes</option>
     </select>
@@ -51,7 +51,7 @@
 
     <label asp-for="CopiedToPlex">Copied to Plex?</label>
     <select asp-for="CopiedToPlex">
-        <option value=""></option>
+        <option value="2"></option>
         <option value="0">No</option>
         <option value="1">Yes</option>
     </select>
